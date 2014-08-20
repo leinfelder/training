@@ -16,9 +16,13 @@ Monday
 * Saving your results back to the network (full life-cycle for synthetic data analysis!)
 
 #### Hands-on: 
-* Online data registry. Add sample data packages to a test Member Node.
-* Interact with Metacat search UI and DataONE to locate those test packages.
+* Online data registry. Add sample data packages to a test Member Node
+    + https://dev.nceas.ucsb.edu/#share
+* Interact with Metacat search UI and DataONE to locate those test packages
+    + MN: https://dev.nceas.ucsb.edu/#data
+    + CN: https://cn-stage-2.test.dataone.org/onemercury/
 * DOI publishing, citation, and resolution.
+    + http://ezid.cdlib.org/lookup
 		
 #### Hands-on: 
 * Installing DataONE R client and using data uploaded in prior sessions in simple analyses and visualizations.
@@ -28,11 +32,11 @@ Tuesday
 	
 #### All about Morpho.
 * Describing data packages, projects, collection methods, protocols, data table attributes, etc.
-* Importing and exporting data and metadata, saving to repository, making revisions, etc.
-
+* Importing and exporting data and metadata, saving to repository, making revisions, etc
 
 #### Hands-on: 
 * Installing Morpho, troubleshooting installations, internationalization settings, etc.
+    + https://knb.ecoinformatics.org/#tools/morpho
 * Editing existing packages.
 * Extending metadata for the packages added via online registry from the previous session.
 * Working with the datapackage wizard to make new packages.
@@ -42,26 +46,41 @@ Wednesday (short morning)
 --------------------------
 
 * EML internationalization techniques.
-* Datapackage structure in EML and OAI-ORE resource maps.
-* Working with EML and the datamanager library: from quality control to data synthesis.
+* Datapackage structures
+    + EML packages
+    + OAI-ORE resource maps
+* Working with EML and the datamanager library: from quality control to data synthesis
+
 
 Thursday
 --------
 	
-#### All about Metacat. 
-* Review the features, optional components, and dependencies for running a repository.
-* Using the Metacat API (deprecated) and the DataONE API to access, add, and modify content.
+#### All about Metacat
+* Review the features and components
+* Interacting with the user interface (UI)
+    + https://knb.ecoinformatics.org/knb/docs/themes.html
+* Using APIs to access, add, and modify content.
+    + Metacat API (deprecated)
+    + DataONE API
+    + SOLR queries (metacat-index)
 
 #### Hands-on: 
-* Installing Metacat, including all dependencies (highly technical, probably use the entire morning for this)
-* Perhaps do this small teams (2-3 people) rather than have each participant installing their own Metacat instance?
-	
+* Install Metacat UI
+* Customize a UI theme
+    + https://knb.ecoinformatics.org/knb/docs/themes.html#creating-a-custom-theme
+* Locate metadata records about certain topics with a SOLR query
+    + https://dev.nceas.ucsb.edu/knb/d1/mn/v1/query/solr/fl=id&q=formatType:METADATA+-obsoletedBy:*&fq=manaus&wt=xml
+
 Friday
 --------
 
-#### Continuing with Metacat
-* Testing the installation
-* Customizing the UI
-* Understanding the map and solr queries
-	
+#### Installing Metacat
+* Review the application structure and dependencies for deploying a Metacat repository
+
+#### Hands-on: 
+* Installing Metacat, including all dependencies
+    + https://knb.ecoinformatics.org/knb/docs/
+* Highly technical, probably use the entire morning for this
+    + Perhaps do this small teams (2-3 people) rather than have each participant installing their own Metacat instance?
+    + Testing the installation: add content, search for content, point UI to local installation	
 	
