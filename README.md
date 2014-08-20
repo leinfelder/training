@@ -67,9 +67,9 @@ Thursday
 #### Hands-on: 
 * Install Metacat UI
 * Customize a UI theme
-    + https://knb.ecoinformatics.org/knb/docs/themes.html#creating-a-custom-theme
+    + Documentation [here](https://knb.ecoinformatics.org/knb/docs/themes.html#creating-a-custom-theme)
 * Locate metadata records about certain topics with a SOLR query
-    + https://dev.nceas.ucsb.edu/knb/d1/mn/v1/query/solr/fl=id&q=formatType:METADATA+-obsoletedBy:*&fq=manaus&wt=xml
+    + Like this [example](https://dev.nceas.ucsb.edu/knb/d1/mn/v1/query/solr/fl=id&q=formatType:METADATA+-obsoletedBy:*&fq=manaus&wt=xml)
 
 Friday
 --------
@@ -79,7 +79,7 @@ Friday
 
 #### Hands-on: 
 * Installing Metacat, including all dependencies
-    + https://knb.ecoinformatics.org/knb/docs/
+    + Download and follow along [here](https://knb.ecoinformatics.org/knb/docs/)
 * Highly technical, probably use the entire morning for this
     + Perhaps do this small teams (2-3 people) rather than have each participant installing their own Metacat instance?
     + Testing the installation: add content, search for content, point UI to local installation	
