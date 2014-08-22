@@ -3,19 +3,43 @@ Data management workshop
 
 LNCC/GBIF - August 25-29, 2014
 
-Monday
---------
+Monday (short morning)
+----------------------
 
 #### Introduction
-* Overview of our software products, research areas, and metadata/data lifecycle: EML -> Morpho -> Metacat -> DataONE -> R client
-* Importance of quality metadata for archiving data, now and for the future.
+* Overview of our software products, research areas, and metadata/data lifecycle
+    + EML -> Morpho -> Metacat -> DataONE -> R client
+* Importance of quality metadata for archiving data for synthesis now and in the future.
 
 #### DataONE R client.
 * Incorporating data and metadata available via the DataONE API in your R scripts.
 * Automatic dataframe parsing for well-described tabular data.
 * Saving your results back to the network (full life-cycle for synthetic data analysis!)
+		
+#### Hands-on: R Client
+* Installing DataONE R client and using data in simple analyses and visualizations.
+		
+Tuesday (short morning)
+------------------------
+	
+#### Data packages
 
-#### Hands-on: 
+* Datapackage structures
+    + EML packages
+    + OAI-ORE resource maps
+* Working with EML and the datamanager library
+    + data synthesis
+    + quality control
+* EML internationalization techniques.
+
+Wednesday
+----------
+
+#### Sharing Data and Metadata
+* Describing data packages, projects, collection methods, protocols, data table attributes, etc.
+* Importing and exporting data and metadata, saving to repository, making revisions, etc
+
+#### Hands-on: Data Registry
 * Online data registry. Add sample data packages to a test Member Node
     + https://dev.nceas.ucsb.edu/#share
 * Interact with Metacat search UI and DataONE to locate those test packages
@@ -23,33 +47,14 @@ Monday
     + CN: https://cn-stage-2.test.dataone.org/onemercury/
 * DOI publishing, citation, and resolution.
     + http://ezid.cdlib.org/lookup
-		
-#### Hands-on: 
-* Installing DataONE R client and using data uploaded in prior sessions in simple analyses and visualizations.
-		
-Tuesday
---------
-	
-#### All about Morpho.
-* Describing data packages, projects, collection methods, protocols, data table attributes, etc.
-* Importing and exporting data and metadata, saving to repository, making revisions, etc
-
-#### Hands-on: 
+    
+#### Hands-on: Morpho
 * Installing Morpho, troubleshooting installations, internationalization settings, etc.
     + https://knb.ecoinformatics.org/#tools/morpho
 * Editing existing packages.
 * Extending metadata for the packages added via online registry from the previous session.
 * Working with the datapackage wizard to make new packages.
 * Exploring other features.
-	
-Wednesday (short morning)
---------------------------
-
-* EML internationalization techniques.
-* Datapackage structures
-    + EML packages
-    + OAI-ORE resource maps
-* Working with EML and the datamanager library: from quality control to data synthesis
 
 
 Thursday
