@@ -44,7 +44,7 @@ sr
 ## <response>
 ##   <lst name="responseHeader">
 ##     <int name="status">0</int>
-##     <int name="QTime">105</int>
+##     <int name="QTime">10</int>
 ##     <lst name="params">
 ##       <str name="fl">identifier,title,author,documents,resourceMap</str>
 ##       <str name="q">datasource:"urn:node:mnTestGLEON" +formatType:METADATA -obsoletedBy:*</str>
@@ -797,7 +797,7 @@ mean(d1$NTL)
 
 ## Plot the data
 
-Air temperature and barometric pressure seem to be inversely related.
+Just a simple site count by State
 
 
 ```r

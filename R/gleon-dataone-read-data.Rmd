@@ -109,7 +109,7 @@ mean(d1$NTL)
 
 ## Plot the data
 
-Air temperature and barometric pressure seem to be inversely related.
+Just a simple site count by State
 
 ```{r, eval = TRUE, echo = TRUE, message = FALSE}
 counts <- table(d1$STATE_NAME)
