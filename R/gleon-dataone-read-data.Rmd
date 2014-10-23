@@ -116,3 +116,25 @@ counts <- table(d1$STATE_NAME)
 counts
 barplot(counts)
 ```
+
+And now a more visually appealing map!
+
+```{r, eval = TRUE, echo = TRUE, message = FALSE}
+library(ggplot2)
+library(mapproj)
+countsdf <- data.frame(counts)
+names(countsdf) <- c("state", "count")
+countsdf$region <- tolower(countsdf$state)
+statedata <- map_data("state")
+m <- ggplot(statedata, aes(map_id = region)) +
+  geom_map(fill="green", map=statedata, color="black") +
+  geom_map(data=countsdf, aes(map_id = region, fill = count), map = statedata, color ="black") +
+  ggtitle("Count by State") +
+  coord_map(projection="mercator") +
+  theme(legend.position = "bottom", 
+    axis.title = element_blank(), axis.ticks = element_blank(), axis.text =  element_blank()) +
+  scale_fill_gradient(low="white", high="darkred") +
+  expand_limits(x = statedata$long, y = statedata$lat) +
+  guides(fill = guide_colorbar(barwidth = 20, barheight = .65))
+print(m)
+```
