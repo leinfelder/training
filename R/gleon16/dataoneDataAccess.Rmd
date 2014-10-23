@@ -47,7 +47,7 @@ setMNodeId(cli, mn_nodeid)
 Retrieve data
 -------------
 
-Retrieve the whole package from the data repository - data and metadata - by adding the word 'resourcMap_' in front of the dataset identifier.
+Retrieve the whole data package from the repository, with both data and metadata. In our case, we add 'resourceMap_' in front of the metadata identifier.
 
 ```{r}
 
