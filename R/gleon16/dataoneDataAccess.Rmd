@@ -14,6 +14,9 @@ Introduction
 The overall goal of this R script is to download hourly water temperature data from the repository, calculate daily averages and format both to be read into the rLakeAnalyzer package. Timeseries files must follow a common format. The first column must have the label 'datetime' and be of the format yyyy-mm-dd HH:MM:SS (ISO 8601 without the "T" delimiter). The second can be skipped if not using sub-minute data. And the water temperature data columns must be sorted by increasing depth.
 
 
+This script uses the R DataONE client to access remote metadata and data. Please see the qucik start guide for installation options and a primer. https://github.com/DataONEorg/rdataone
+
+
 Please go to the GLEON data product repository (DataONE Member Node) search interface at https://poseidon.limnology.wisc.edu/metacatui/ click on "DATA" and search for the test dataset that we will be using today: https://poseidon.limnology.wisc.edu/metacatui/#view/cgries.23.1 . Note the dataset ID is: **cgries.23.1**
 
 Set up
