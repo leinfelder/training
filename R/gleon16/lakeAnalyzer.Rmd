@@ -1,0 +1,88 @@
+---
+title: "Water temperature data in rLakeAnalyzer"
+author: "Corinna Gries"
+date: "Thursday, October 23, 2014"
+output:
+  html_document:
+    keep_md: yes
+---
+
+Introduction
+------------
+
+The goal of this script is to load a time series of water temperature at different water depth and run a few example statistics. The to be loaded was previously optained from either the GLEON CUAHSI sensor data repository or from the GLEON DataONE data product repository and formated in the respective scripts.
+
+Timeseries files must follow a common format. The first column must have the label 'datetime' and be of the format yyyy-mm-dd HH:MM:SS (ISO 8601 without the "T" delimiter). The second can be skipped if not using sub-minute data. And the water temperature data columns must be sorted by increasing depth.
+
+Set up
+------
+
+Install and load the package rLakeAnalyzer
+
+```{r}
+
+library(rLakeAnalyzer)
+```
+
+Load the data
+-------------
+
+```{r load.ts}
+#path and file names for the two aggregated and rearranged tables
+path.hourlysave <- 'Mendota2013widehourly.txt'
+path.dailysave <- 'Mendota2013widedaily.txt'
+
+#Load into RLakeAnalyzer
+wrt.dailytemp = load.ts(path.dailysave)
+wrt.hourlytemp = load.ts(path.hourlysave)
+
+#explore the data tables
+str(wrt.dailytemp)
+str(wrt.hourlytemp)
+
+#make sure the files are sorted by date
+attach(wrt.dailytemp)
+wrt.dailysorted <- wrt.dailytemp[order(datetime),]
+detach(wrt.dailytemp)
+
+attach(wrt.hourlytemp)
+wrt.hourlysorted <- wrt.hourlytemp[order(datetime),]
+detach(wrt.hourlytemp)
+
+```
+
+Plot a heatmap for lake Mendoata in 2013
+--------------------------------
+
+```{r heat.map, fig.width=6, fig.height=4, echo=FALSE}
+#plot a heat map (contour map)
+wtr.heat.map(wrt.dailysorted)
+```
+
+Plot the buoyancy frequency for lake Mendota in 2013
+----------------------------------------------------
+
+```{r}
+
+#calculate bouyancy on daily sorted data
+N2 = ts.buoyancy.freq(wrt.dailysorted, seasonal=FALSE)
+SN2 = ts.buoyancy.freq(wrt.dailysorted, seasonal=TRUE)
+```
+```{r buoyancy, fig.width=6, fig.height=4, echo=FALSE}
+plot(N2, type='l', ylab='Buoyancy Frequency', xlab='Date')
+lines(SN2, col='red')
+```
+
+Plot the thermocline depth for lake Mendota in 2013
+---------------------------------------------------
+
+```{r}
+
+#calculate the thermocline depth
+t.d = ts.thermo.depth(wrt.hourlysorted)
+```
+
+```{r thermocline, fig.width=6, fig.height=4, echo=FALSE}
+plot(t.d$datetime, t.d$thermo.depth, type='l', ylab='Thermocline Depth (m)', xlab='Date')
+
+```
