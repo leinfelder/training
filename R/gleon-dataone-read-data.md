@@ -44,13 +44,13 @@ sr
 ## <response>
 ##   <lst name="responseHeader">
 ##     <int name="status">0</int>
-##     <int name="QTime">10</int>
+##     <int name="QTime">8</int>
 ##     <lst name="params">
 ##       <str name="fl">identifier,title,author,documents,resourceMap</str>
 ##       <str name="q">datasource:"urn:node:mnTestGLEON" +formatType:METADATA -obsoletedBy:*</str>
 ##     </lst>
 ##   </lst>
-##   <result name="response" numFound="4" start="0">
+##   <result name="response" numFound="5" start="0">
 ##     <doc>
 ##       <str name="author">Emily Read</str>
 ##       <arr name="documents">
@@ -101,6 +101,17 @@ sr
 ##         <str>resourceMap_gleon.2.4</str>
 ##       </arr>
 ##       <str name="title">Microbial Observatory at North Temperate Lakes LTER Time series of bacterial community dynamics in Lake Mendota 2000 - 2009</str>
+##     </doc>
+##     <doc>
+##       <str name="author">Corinna Gries</str>
+##       <arr name="documents">
+##         <str>cgries.22.1</str>
+##       </arr>
+##       <str name="identifier">cgries.23.1</str>
+##       <arr name="resourceMap">
+##         <str>resourceMap_cgries.23.1</str>
+##       </arr>
+##       <str name="title">Lake Mendota hourly water temperature profile 2013</str>
 ##     </doc>
 ##   </result>
 ## </response>
@@ -834,3 +845,28 @@ barplot(counts)
 ```
 
 ![plot of chunk unnamed-chunk-10](./gleon-dataone-read-data_files/figure-html/unnamed-chunk-10.png) 
+
+And now a more visually appealing map!
+
+
+```r
+library(ggplot2)
+library(mapproj)
+countsdf <- data.frame(counts)
+names(countsdf) <- c("state", "count")
+countsdf$region <- tolower(countsdf$state)
+statedata <- map_data("state")
+m <- ggplot(statedata, aes(map_id = region)) +
+  geom_map(fill="green", map=statedata, color="black") +
+  geom_map(data=countsdf, aes(map_id = region, fill = count), map = statedata, color ="black") +
+  ggtitle("Count by State") +
+  coord_map(projection="mercator") +
+  theme(legend.position = "bottom", 
+    axis.title = element_blank(), axis.ticks = element_blank(), axis.text =  element_blank()) +
+  scale_fill_gradient(low="white", high="darkred") +
+  expand_limits(x = statedata$long, y = statedata$lat) +
+  guides(fill = guide_colorbar(barwidth = 20, barheight = .65))
+print(m)
+```
+
+![plot of chunk unnamed-chunk-11](./gleon-dataone-read-data_files/figure-html/unnamed-chunk-11.png) 
